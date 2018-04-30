@@ -16,6 +16,16 @@ public class Show {
     private String longName;
     private String synopsis;
 
+    public Show(String from, String to, String longName, String synopsis) {
+        this.from = from;
+        this.to = to;
+        this.longName = longName;
+        this.synopsis = synopsis;
+    }
+
+    public Show() {
+    }
+
     /**
      * @return the from
      */

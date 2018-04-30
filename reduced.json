@@ -1,0 +1,64 @@
+{
+    "schedule": [
+        {
+            "from": "2018-03-26T00:00:00.000+01:00",
+            "to": "2018-03-26T04:00:00.000+01:00",
+            "episode": {
+                "id": 1398076,
+                "stationId": 153,
+                "start": "2018-03-26T00:00:00.000+01:00",
+                "finish": "2018-03-26T04:00:00.000+01:00",
+                "programme": {
+                    "id": 2065,
+                    "shortName": "WillC",
+                    "mediumName": "Will Cozens",
+                    "longName": "Will Cozens",
+                    "synopsis": "Will's going to get you moving with some of the BIGGEST, freshest hits and the latest celebrity gossip! Get involved @CapitalOfficial on Twitter.",
+                    "contactFormUrl": "http://www.capitalfm.com/london/radio/shows-presenters/will-cozens",
+                    "showPageUrl": "http://www.capitalfm.com/london/radio/shows-presenters/will-cozens",
+                    "slideshowImage": {
+                        "id": 5227,
+                        "path": "ae7dd64a-3da6-4e6d-b544-f40c3e2c7206",
+                        "mime": "image/png",
+                        "width": 0,
+                        "height": 0
+                    },
+                    "websiteImage": {
+                        "id": 5227,
+                        "path": "ae7dd64a-3da6-4e6d-b544-f40c3e2c7206",
+                        "mime": "image/png",
+                        "width": 0,
+                        "height": 0
+                    },
+                    "squareImage": {
+                        "id": 5228,
+                        "path": "4ebe17e9-8c96-4ac9-bbef-794a544b77e9",
+                        "mime": "image/png",
+                        "width": 0,
+                        "height": 0
+                    },
+                    "widescreenImage": {
+                        "id": 5227,
+                        "path": "ae7dd64a-3da6-4e6d-b544-f40c3e2c7206",
+                        "mime": "image/png",
+                        "width": 0,
+                        "height": 0
+                    },
+                    "images": [
+                        {
+                            "id": 5228,
+                            "path": "4ebe17e9-8c96-4ac9-bbef-794a544b77e9",
+                            "mime": "image/png",
+                            "width": 0,
+                            "height": 0
+                        }
+                    ],
+                    "sources": [
+                        100
+                    ]
+                },
+                "sources": []
+            }
+        }
+    ]
+}
