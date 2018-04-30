@@ -23,7 +23,16 @@ public class ShowParser {
         Show show = new Show();
         show.setFrom(showObject.get("from").getAsString());
         show.setTo(showObject.get("to").getAsString());
+        JsonObject programme = getProgramme(showObject);
+        show.setLongName(programme.get("longName").getAsString());
+        show.setSynopsis(programme.get("synopsis").getAsString());
         return show;
+    }
+
+    private JsonObject getProgramme(JsonObject showObject) {
+        JsonObject episode = showObject.getAsJsonObject("episode");
+        return episode.getAsJsonObject("programme");
+
     }
 
 }

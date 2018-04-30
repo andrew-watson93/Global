@@ -97,4 +97,15 @@ public class ShowParserTest {
         assertThat(show.getTo(), is("2018-03-26T04:00:00.000+01:00"));
     }
 
+    @Test
+    public void getShow_ReturnsShowWithLongName() {
+        assertThat(show.getLongName(), is("Will Cozens"));
+    }
+
+    @Test
+    public void getShow_ReturnsShowWithSynopsis() {
+        assertThat(show.getSynopsis(), is("Will's going to get you moving with some of the BIGGEST, "
+                + "freshest hits and the latest celebrity gossip! Get involved @CapitalOfficial on Twitter."));
+    }
+
 }
