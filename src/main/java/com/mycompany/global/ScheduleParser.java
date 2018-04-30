@@ -5,18 +5,16 @@
  */
 package com.mycompany.global;
 
-import com.google.gson.Gson;
-
 /**
  *
  * @author andre
  */
-public class ShowParser {
+public class ScheduleParser {
 
-    Show getShow2(String json) {
-        Gson gson = new Gson();
-        Show show2 = gson.fromJson(json, Show.class);
-        return show2;
+    private final ShowParser showParser;
+
+    public ScheduleParser(ShowParser showParser) {
+        this.showParser = showParser;
     }
 
 }

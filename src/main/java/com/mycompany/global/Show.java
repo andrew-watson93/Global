@@ -11,21 +11,6 @@ package com.mycompany.global;
  */
 public class Show {
 
-    private String from;
-    private String to;
-    private String longName;
-    private String synopsis;
-
-    public Show(String from, String to, String longName, String synopsis) {
-        this.from = from;
-        this.to = to;
-        this.longName = longName;
-        this.synopsis = synopsis;
-    }
-
-    public Show() {
-    }
-
     /**
      * @return the from
      */
@@ -55,31 +40,26 @@ public class Show {
     }
 
     /**
-     * @return the longName
+     * @return the episode
      */
-    public String getLongName() {
-        return longName;
+    public Episode getEpisode() {
+        return episode;
     }
 
     /**
-     * @param longName the longName to set
+     * @param episode the episode to set
      */
-    public void setLongName(String longName) {
-        this.longName = longName;
+    public void setEpisode(Episode episode) {
+        this.episode = episode;
     }
 
-    /**
-     * @return the synopsis
-     */
-    public String getSynopsis() {
-        return synopsis;
-    }
+    private String from;
+    private String to;
+    private Episode episode;
 
-    /**
-     * @param synopsis the synopsis to set
-     */
-    public void setSynopsis(String synopsis) {
-        this.synopsis = synopsis;
+    public Show(String from, String to, Episode episode) {
+        this.from = from;
+        this.to = to;
+        this.episode = episode;
     }
-
 }

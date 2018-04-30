@@ -18,7 +18,7 @@ public class ShowParserTest {
 
     private ShowParser showParser = new ShowParser();
 
-    private static final String JSON_STRING
+    private static final String SHOW_STRING
             = "{\n"
             + "            \"from\": \"2018-03-26T00:00:00.000+01:00\",\n"
             + "            \"to\": \"2018-03-26T04:00:00.000+01:00\",\n"
@@ -84,7 +84,7 @@ public class ShowParserTest {
 
     @Before
     public void setup() {
-        show = showParser.getShow(JSON_STRING);
+        show = showParser.getShow2(SHOW_STRING);
     }
 
     @Test
@@ -99,12 +99,12 @@ public class ShowParserTest {
 
     @Test
     public void getShow_ReturnsShowWithLongName() {
-        assertThat(show.getLongName(), is("Will Cozens"));
+        assertThat(show.getEpisode().getProgramme().getLongName(), is("Will Cozens"));
     }
 
     @Test
     public void getShow_ReturnsShowWithSynopsis() {
-        assertThat(show.getSynopsis(), is("Will's going to get you moving with some of the BIGGEST, "
+        assertThat(show.getEpisode().getProgramme().getSynopsis(), is("Will's going to get you moving with some of the BIGGEST, "
                 + "freshest hits and the latest celebrity gossip! Get involved @CapitalOfficial on Twitter."));
     }
 
