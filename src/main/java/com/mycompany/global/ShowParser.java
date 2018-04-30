@@ -22,6 +22,7 @@ public class ShowParser {
         JsonObject showObject = new JsonParser().parse(json).getAsJsonObject();
         Show show = new Show();
         show.setFrom(showObject.get("from").getAsString());
+        show.setTo(showObject.get("to").getAsString());
         return show;
     }
 
