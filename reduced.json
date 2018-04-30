@@ -2,63 +2,130 @@
     "schedule": [
         {
             "from": "2018-03-26T00:00:00.000+01:00",
-            "to": "2018-03-26T04:00:00.000+01:00",
-            "episode": {
-                "id": 1398076,
-                "stationId": 153,
-                "start": "2018-03-26T00:00:00.000+01:00",
-                "finish": "2018-03-26T04:00:00.000+01:00",
-                "programme": {
-                    "id": 2065,
-                    "shortName": "WillC",
-                    "mediumName": "Will Cozens",
-                    "longName": "Will Cozens",
-                    "synopsis": "Will's going to get you moving with some of the BIGGEST, freshest hits and the latest celebrity gossip! Get involved @CapitalOfficial on Twitter.",
-                    "contactFormUrl": "http://www.capitalfm.com/london/radio/shows-presenters/will-cozens",
-                    "showPageUrl": "http://www.capitalfm.com/london/radio/shows-presenters/will-cozens",
-                    "slideshowImage": {
-                        "id": 5227,
-                        "path": "ae7dd64a-3da6-4e6d-b544-f40c3e2c7206",
-                        "mime": "image/png",
-                        "width": 0,
-                        "height": 0
-                    },
-                    "websiteImage": {
-                        "id": 5227,
-                        "path": "ae7dd64a-3da6-4e6d-b544-f40c3e2c7206",
-                        "mime": "image/png",
-                        "width": 0,
-                        "height": 0
-                    },
-                    "squareImage": {
-                        "id": 5228,
-                        "path": "4ebe17e9-8c96-4ac9-bbef-794a544b77e9",
-                        "mime": "image/png",
-                        "width": 0,
-                        "height": 0
-                    },
-                    "widescreenImage": {
-                        "id": 5227,
-                        "path": "ae7dd64a-3da6-4e6d-b544-f40c3e2c7206",
-                        "mime": "image/png",
-                        "width": 0,
-                        "height": 0
-                    },
-                    "images": [
-                        {
-                            "id": 5228,
-                            "path": "4ebe17e9-8c96-4ac9-bbef-794a544b77e9",
-                            "mime": "image/png",
-                            "width": 0,
-                            "height": 0
-                        }
-                    ],
-                    "sources": [
-                        100
-                    ]
+            "to": "2018-03-26T06:00:00.000+01:00",
+            "includedStationId": 153,
+            "schedule": [
+                {
+                    "from": "2018-03-26T00:00:00.000+01:00",
+                    "to": "2018-03-26T04:00:00.000+01:00",
+                    "episode": {
+                        "id": 1398076,
+                        "stationId": 153,
+                        "start": "2018-03-26T00:00:00.000+01:00",
+                        "finish": "2018-03-26T04:00:00.000+01:00",
+                        "programme": {
+                            "id": 2065,
+                            "shortName": "WillC",
+                            "mediumName": "Will Cozens",
+                            "longName": "Will Cozens",
+                            "synopsis": "Will's going to get you moving with some of the BIGGEST, freshest hits and the latest celebrity gossip! Get involved @CapitalOfficial on Twitter.",
+                            "contactFormUrl": "http://www.capitalfm.com/london/radio/shows-presenters/will-cozens",
+                            "showPageUrl": "http://www.capitalfm.com/london/radio/shows-presenters/will-cozens",
+                            "slideshowImage": {
+                                "id": 5227,
+                                "path": "ae7dd64a-3da6-4e6d-b544-f40c3e2c7206",
+                                "mime": "image/png",
+                                "width": 0,
+                                "height": 0
+                            },
+                            "websiteImage": {
+                                "id": 5227,
+                                "path": "ae7dd64a-3da6-4e6d-b544-f40c3e2c7206",
+                                "mime": "image/png",
+                                "width": 0,
+                                "height": 0
+                            },
+                            "squareImage": {
+                                "id": 5228,
+                                "path": "4ebe17e9-8c96-4ac9-bbef-794a544b77e9",
+                                "mime": "image/png",
+                                "width": 0,
+                                "height": 0
+                            },
+                            "widescreenImage": {
+                                "id": 5227,
+                                "path": "ae7dd64a-3da6-4e6d-b544-f40c3e2c7206",
+                                "mime": "image/png",
+                                "width": 0,
+                                "height": 0
+                            },
+                            "images": [
+                                {
+                                    "id": 5228,
+                                    "path": "4ebe17e9-8c96-4ac9-bbef-794a544b77e9",
+                                    "mime": "image/png",
+                                    "width": 0,
+                                    "height": 0
+                                }
+                            ],
+                            "sources": [
+                                100
+                            ]
+                        },
+                        "sources": []
+                    }
                 },
-                "sources": []
-            }
+                {
+                    "from": "2018-03-26T04:00:00.000+01:00",
+                    "to": "2018-03-26T06:00:00.000+01:00",
+                    "episode": {
+                        "id": 1398077,
+                        "stationId": 153,
+                        "start": "2018-03-26T04:00:00.000+01:00",
+                        "finish": "2018-03-26T06:00:00.000+01:00",
+                        "programme": {
+                            "id": 5428,
+                            "shortName": "AimeeV",
+                            "mediumName": "Aimee Vivian",
+                            "longName": "Aimee Vivian",
+                            "synopsis": "Aimee's on hand with the biggest tunes from your favourite hit music stars. Catch up with all the latest now at CapitalFM.com",
+                            "contactFormUrl": "http://www.capitalfm.com/radio/shows-presenters/aimee-vivian",
+                            "showPageUrl": "http://www.capitalfm.com/radio/shows-presenters/aimee-vivian",
+                            "slideshowImage": {
+                                "id": 5021,
+                                "path": "59ecb8ff-f4ad-45e3-89e9-0a4e9a21d861",
+                                "mime": "image/png",
+                                "width": 0,
+                                "height": 0
+                            },
+                            "websiteImage": {
+                                "id": 5021,
+                                "path": "59ecb8ff-f4ad-45e3-89e9-0a4e9a21d861",
+                                "mime": "image/png",
+                                "width": 0,
+                                "height": 0
+                            },
+                            "squareImage": {
+                                "id": 5022,
+                                "path": "c039386b-a3b1-493b-9151-790bd20f7055",
+                                "mime": "image/png",
+                                "width": 0,
+                                "height": 0
+                            },
+                            "widescreenImage": {
+                                "id": 5021,
+                                "path": "59ecb8ff-f4ad-45e3-89e9-0a4e9a21d861",
+                                "mime": "image/png",
+                                "width": 0,
+                                "height": 0
+                            },
+                            "images": [
+                                {
+                                    "id": 5022,
+                                    "path": "c039386b-a3b1-493b-9151-790bd20f7055",
+                                    "mime": "image/png",
+                                    "width": 0,
+                                    "height": 0
+                                }
+                            ],
+                            "sources": [
+                                100
+                            ]
+                        },
+                        "sources": []
+                    }
+                }
+            ]
         }
     ]
 }

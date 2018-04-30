@@ -84,7 +84,7 @@ public class ShowParserTest {
 
     @Before
     public void setup() {
-        show = showParser.getShow2(SHOW_STRING);
+        show = showParser.getShow(SHOW_STRING);
     }
 
     @Test

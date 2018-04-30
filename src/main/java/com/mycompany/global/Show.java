@@ -11,6 +11,9 @@ package com.mycompany.global;
  */
 public class Show {
 
+    public Show() {
+    }
+
     /**
      * @return the from
      */

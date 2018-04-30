@@ -13,10 +13,10 @@ import com.google.gson.Gson;
  */
 public class ShowParser {
 
-    Show getShow2(String json) {
+    Show getShow(String json) {
         Gson gson = new Gson();
-        Show show2 = gson.fromJson(json, Show.class);
-        return show2;
+        Show show = gson.fromJson(json, Show.class);
+        return show;
     }
 
 }
