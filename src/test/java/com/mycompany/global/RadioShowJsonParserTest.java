@@ -28,13 +28,13 @@ import org.mockito.runners.MockitoJUnitRunner;
  * @author andre
  */
 @RunWith(MockitoJUnitRunner.class)
-public class ItemParserTest {
+public class RadioShowJsonParserTest {
 
     @Mock
     private ShowParser showParser;
 
     @InjectMocks
-    private ItemParser itemParser;
+    private RadioShowJsonParser radioShowJsonParser;
 
     private Show expectedShow;
 
@@ -51,19 +51,19 @@ public class ItemParserTest {
 
     @Test
     public void parseItem_CallsParserMultipleTimesForNestedItem() {
-        itemParser.parseItems(NESTED_SHOWS);
+        radioShowJsonParser.parseItems(NESTED_SHOWS);
         verify(showParser, times(2)).getShow(anyString());
     }
 
     @Test
     public void parseItem_CallsParserOnceForNonNestedItem() {
-        itemParser.parseItems(NON_NESTED_SHOWS);
+        radioShowJsonParser.parseItems(NON_NESTED_SHOWS);
         verify(showParser).getShow(anyString());
     }
 
     @Test
     public void parseItem_HandlesBothTypesTogether() {
-        itemParser.parseItems(NESTED_AND_NON_NESTED);
+        radioShowJsonParser.parseItems(NESTED_AND_NON_NESTED);
         verify(showParser, times(3)).getShow(anyString());
     }
 
@@ -72,7 +72,7 @@ public class ItemParserTest {
 
         TimedShow expectedTimedShow = new TimedShow(expectedShow);
         when(showParser.getShow(anyString())).thenReturn(expectedShow);
-        List<TimedShow> shows = itemParser.parseItems(NON_NESTED_SHOWS);
+        List<TimedShow> shows = radioShowJsonParser.parseItems(NON_NESTED_SHOWS);
         assertThat(shows.size(), is(1));
         TimedShow actualTimedShow = shows.get(0);
         assertThat(expectedTimedShow, is(actualTimedShow));

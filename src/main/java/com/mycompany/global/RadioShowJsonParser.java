@@ -15,11 +15,11 @@ import java.util.List;
  *
  * @author andre
  */
-public class ItemParser {
+public class RadioShowJsonParser {
 
     private final ShowParser showParser;
 
-    public ItemParser(ShowParser showParser) {
+    public RadioShowJsonParser(ShowParser showParser) {
         this.showParser = showParser;
     }
 
