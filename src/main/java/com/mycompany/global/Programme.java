@@ -11,6 +11,9 @@ package com.mycompany.global;
  */
 class Programme {
 
+    private String longName;
+    private String synopsis;
+
     /**
      * @return the longName
      */
@@ -39,11 +42,23 @@ class Programme {
         this.synopsis = synopsis;
     }
 
-    private String longName;
-    private String synopsis;
-
     public Programme(String longName, String synopsis) {
         this.longName = longName;
         this.synopsis = synopsis;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Programme) {
+            Programme programmeObj = (Programme) o;
+            if (this == o) {
+                return true;
+            } else {
+                return this.longName.equals(programmeObj.getLongName())
+                        && this.synopsis.equals(programmeObj.getSynopsis());
+            }
+        }
+        return false;
+    }
+
 }

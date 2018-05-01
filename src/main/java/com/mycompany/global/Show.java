@@ -65,4 +65,19 @@ public class Show {
         this.to = to;
         this.episode = episode;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Show) {
+            Show showObj = (Show) o;
+            if (this == showObj) {
+                return true;
+            } else {
+                return this.from.equals(showObj.getFrom())
+                        && this.to.equals(showObj.getTo())
+                        && this.episode.equals(showObj.episode);
+            }
+        }
+        return false;
+    }
 }

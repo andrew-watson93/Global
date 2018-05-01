@@ -31,4 +31,17 @@ class Episode {
         this.programme = programme;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Episode) {
+            Episode episodeObj = (Episode) o;
+            if (this == episodeObj) {
+                return true;
+            } else {
+                return this.programme.equals(episodeObj.getProgramme());
+            }
+        }
+        return false;
+    }
+
 }

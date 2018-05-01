@@ -38,9 +38,7 @@ public class ItemParser {
                 shows.add(showParser.getShow(itemJsonObject.toString()));
             }
         });
-//        Set<Entry<String, JsonElement>> entrySet = schedule.entrySet();
-//        return shows;
-        return null;
+        return shows;
 
     }
 
