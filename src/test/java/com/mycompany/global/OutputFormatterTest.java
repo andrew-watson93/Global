@@ -27,6 +27,12 @@ public class OutputFormatterTest {
         assertThat(showsByDay.size(), is(1));
         ShowsByDay day = showsByDay.get(0);
         assertThat(day.getDateString(), is("2018-03-26"));
+        assertThat(day.getShows().size(), is(1));
+        ShowDto showDto = day.getShows().get(0);
+        assertThat(showDto.getFrom(), is("2018-03-26T00:00+01:00[Europe/London]"));
+        assertThat(showDto.getTo(), is("2018-03-26T04:00+01:00[Europe/London]"));
+        assertThat(showDto.getSynopsis(), is("synopsis"));
+        assertThat(showDto.getLongName(), is("longName"));
 
     }
 
