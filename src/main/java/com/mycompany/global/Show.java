@@ -5,11 +5,28 @@
  */
 package com.mycompany.global;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author andre
  */
 public class Show {
+
+    private Date from;
+    private Date to;
+    private Episode episode;
+
+    public static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+
+    public Show(String from, String to, Episode episode) throws ParseException {
+        this.from = DATE_FORMAT.parse(from);
+        this.to = DATE_FORMAT.parse(to);
+        this.episode = episode;
+    }
 
     public Show() {
     }
@@ -17,28 +34,28 @@ public class Show {
     /**
      * @return the from
      */
-    public String getFrom() {
+    public Date getFrom() {
         return from;
     }
 
     /**
      * @param from the from to set
      */
-    public void setFrom(String from) {
+    public void setFrom(Date from) {
         this.from = from;
     }
 
     /**
      * @return the to
      */
-    public String getTo() {
+    public Date getTo() {
         return to;
     }
 
     /**
      * @param to the to to set
      */
-    public void setTo(String to) {
+    public void setTo(Date to) {
         this.to = to;
     }
 
@@ -53,16 +70,6 @@ public class Show {
      * @param episode the episode to set
      */
     public void setEpisode(Episode episode) {
-        this.episode = episode;
-    }
-
-    private String from;
-    private String to;
-    private Episode episode;
-
-    public Show(String from, String to, Episode episode) {
-        this.from = from;
-        this.to = to;
         this.episode = episode;
     }
 

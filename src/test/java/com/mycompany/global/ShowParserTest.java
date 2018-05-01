@@ -5,6 +5,8 @@
  */
 package com.mycompany.global;
 
+import java.text.ParseException;
+import java.util.Date;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Before;
@@ -88,13 +90,16 @@ public class ShowParserTest {
     }
 
     @Test
-    public void getShow_ReturnsShowWithFrom() {
-        assertThat(show.getFrom(), is("2018-03-26T00:00:00.000+01:00"));
+    public void getShow_ReturnsShowWithFrom() throws ParseException {
+        Date expected = Show.DATE_FORMAT.parse("2018-03-26T00:00:00.000+01:00");
+        assertThat(show.getFrom(), is(expected));
     }
 
     @Test
-    public void getShow_ReturnsShowWithTo() {
-        assertThat(show.getTo(), is("2018-03-26T04:00:00.000+01:00"));
+    public void getShow_ReturnsShowWithTo() throws ParseException {
+        Date expected = Show.DATE_FORMAT.parse("2018-03-26T04:00:00.000+01:00");
+        assertThat(show.getTo(), is(expected)
+        );
     }
 
     @Test

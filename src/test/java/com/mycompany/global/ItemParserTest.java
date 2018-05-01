@@ -8,6 +8,7 @@ package com.mycompany.global;
 import static com.mycompany.global.TestConstants.NESTED_AND_NON_NESTED;
 import static com.mycompany.global.TestConstants.NESTED_SHOWS;
 import static com.mycompany.global.TestConstants.NON_NESTED_SHOWS;
+import java.text.ParseException;
 import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -53,8 +54,12 @@ public class ItemParserTest {
     }
 
     @Test
-    public void parseItem_ReturnsShowsFromShowParser() {
-        Show expected = new Show("from", "to", new Episode(new Programme("longName", "synopsis")));
+    public void parseItem_ReturnsShowsFromShowParser() throws ParseException {
+        Show expected = new Show(
+                "2018-03-26T00:00:00.000+01:00",
+                "2018-03-26T00:00:00.000+01:00",
+                new Episode(new Programme("longName", "synopsis"))
+        );
         when(showParser.getShow(anyString())).thenReturn(expected);
         List<Show> shows = itemParser.parseItems(NON_NESTED_SHOWS);
         assertThat(shows.size(), is(1));
