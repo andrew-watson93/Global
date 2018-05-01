@@ -8,6 +8,8 @@ package com.mycompany.global;
 import static com.mycompany.global.TestConstants.NESTED_AND_NON_NESTED;
 import static com.mycompany.global.TestConstants.NESTED_SHOWS;
 import static com.mycompany.global.TestConstants.NON_NESTED_SHOWS;
+import static com.mycompany.global.TestConstants.SHOW;
+import static com.mycompany.global.TestConstants.TIMED_SHOW;
 import java.text.ParseException;
 import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
@@ -36,16 +38,9 @@ public class RadioShowJsonParserTest {
     @InjectMocks
     private RadioShowJsonParser radioShowJsonParser;
 
-    private Show expectedShow;
-
     @Before
     public void setUp() {
-        expectedShow = new Show(
-                "2018-03-26T00:00:00.000+01:00",
-                "2018-03-26T00:00:00.000+01:00",
-                new Episode(new Programme("longName", "synopsis"))
-        );
-        when(showParser.getShow(anyString())).thenReturn(expectedShow);
+        when(showParser.getShow(anyString())).thenReturn(SHOW);
 
     }
 
@@ -70,12 +65,10 @@ public class RadioShowJsonParserTest {
     @Test
     public void parseItem_ReturnsShowsFromShowParser() throws ParseException {
 
-        TimedShow expectedTimedShow = new TimedShow(expectedShow);
-        when(showParser.getShow(anyString())).thenReturn(expectedShow);
         List<TimedShow> shows = radioShowJsonParser.parseItems(NON_NESTED_SHOWS);
         assertThat(shows.size(), is(1));
         TimedShow actualTimedShow = shows.get(0);
-        assertThat(expectedTimedShow, is(actualTimedShow));
+        assertThat(TIMED_SHOW, is(actualTimedShow));
     }
 
 }

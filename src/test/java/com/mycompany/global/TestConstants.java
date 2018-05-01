@@ -72,4 +72,11 @@ public class TestConstants {
             + "    ]\n"
             + "}";
 
+    public static final Show SHOW = new Show(
+            "2018-03-26T00:00:00.000+01:00",
+            "2018-03-26T04:00:00.000+01:00",
+            new Episode(new Programme("longName", "synopsis"))
+    );
+
+    public static final TimedShow TIMED_SHOW = new TimedShow(SHOW);
 }
