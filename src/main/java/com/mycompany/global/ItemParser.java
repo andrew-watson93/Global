@@ -23,22 +23,22 @@ public class ItemParser {
         this.showParser = showParser;
     }
 
-    public List<Show> parseItems(String json) {
+    public List<TimedShow> parseItems(String json) {
         JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
         JsonArray schedule = jsonObject.getAsJsonArray("schedule");
-        List<Show> shows = new ArrayList<>();
+        List<TimedShow> timedShows = new ArrayList<>();
         schedule.forEach(item -> {
             JsonObject itemJsonObject = item.getAsJsonObject();
             if (itemJsonObject.get("includedStationId") != null) {
                 JsonArray scheduleNodes = itemJsonObject.getAsJsonArray("schedule");
                 scheduleNodes.forEach(node -> {
-                    shows.add(showParser.getShow(node.toString()));
+                    timedShows.add(new TimedShow(showParser.getShow(node.toString())));
                 });
             } else {
-                shows.add(showParser.getShow(itemJsonObject.toString()));
+                timedShows.add(new TimedShow(showParser.getShow(itemJsonObject.toString())));
             }
         });
-        return shows;
+        return timedShows;
 
     }
 

@@ -5,8 +5,6 @@
  */
 package com.mycompany.global;
 
-import java.text.ParseException;
-
 /**
  *
  * @author andre
@@ -17,7 +15,7 @@ public class Show {
     private String to;
     private Episode episode;
 
-    public Show(String from, String to, Episode episode) throws ParseException {
+    public Show(String from, String to, Episode episode) {
         this.from = from;
         this.to = to;
         this.episode = episode;

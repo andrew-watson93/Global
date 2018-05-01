@@ -12,6 +12,7 @@ import java.text.ParseException;
 import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -35,6 +36,19 @@ public class ItemParserTest {
     @InjectMocks
     private ItemParser itemParser;
 
+    private Show expectedShow;
+
+    @Before
+    public void setUp() {
+        expectedShow = new Show(
+                "2018-03-26T00:00:00.000+01:00",
+                "2018-03-26T00:00:00.000+01:00",
+                new Episode(new Programme("longName", "synopsis"))
+        );
+        when(showParser.getShow(anyString())).thenReturn(expectedShow);
+
+    }
+
     @Test
     public void parseItem_CallsParserMultipleTimesForNestedItem() {
         itemParser.parseItems(NESTED_SHOWS);
@@ -55,16 +69,13 @@ public class ItemParserTest {
 
     @Test
     public void parseItem_ReturnsShowsFromShowParser() throws ParseException {
-        Show expected = new Show(
-                "2018-03-26T00:00:00.000+01:00",
-                "2018-03-26T00:00:00.000+01:00",
-                new Episode(new Programme("longName", "synopsis"))
-        );
-        when(showParser.getShow(anyString())).thenReturn(expected);
-        List<Show> shows = itemParser.parseItems(NON_NESTED_SHOWS);
+
+        TimedShow expectedTimedShow = new TimedShow(expectedShow);
+        when(showParser.getShow(anyString())).thenReturn(expectedShow);
+        List<TimedShow> shows = itemParser.parseItems(NON_NESTED_SHOWS);
         assertThat(shows.size(), is(1));
-        Show actual = shows.get(0);
-        assertThat(expected, is(actual));
+        TimedShow actualTimedShow = shows.get(0);
+        assertThat(expectedTimedShow, is(actualTimedShow));
     }
 
 }
