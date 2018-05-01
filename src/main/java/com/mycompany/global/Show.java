@@ -5,10 +5,7 @@
  */
 package com.mycompany.global;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  *
@@ -16,15 +13,13 @@ import java.util.Date;
  */
 public class Show {
 
-    private Date from;
-    private Date to;
+    private String from;
+    private String to;
     private Episode episode;
 
-    public static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
-
     public Show(String from, String to, Episode episode) throws ParseException {
-        this.from = DATE_FORMAT.parse(from);
-        this.to = DATE_FORMAT.parse(to);
+        this.from = from;
+        this.to = to;
         this.episode = episode;
     }
 
@@ -34,28 +29,28 @@ public class Show {
     /**
      * @return the from
      */
-    public Date getFrom() {
+    public String getFrom() {
         return from;
     }
 
     /**
      * @param from the from to set
      */
-    public void setFrom(Date from) {
+    public void setFrom(String from) {
         this.from = from;
     }
 
     /**
      * @return the to
      */
-    public Date getTo() {
+    public String getTo() {
         return to;
     }
 
     /**
      * @param to the to to set
      */
-    public void setTo(Date to) {
+    public void setTo(String to) {
         this.to = to;
     }
 
