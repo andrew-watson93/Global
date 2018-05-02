@@ -84,6 +84,14 @@ public class TestConstants {
             new Episode(new Programme("longName", "synopsis"))
     );
 
+    public static final Show SHOW_3 = new Show(
+            "2018-03-27T04:00:00.000+01:00",
+            "2018-03-27T06:00:00.000+01:00",
+            new Episode(new Programme("longName", "synopsis"))
+    );
+
     public static final TimedShow TIMED_SHOW_1 = new TimedShow(SHOW_1);
     public static final TimedShow TIMED_SHOW_2 = new TimedShow(SHOW_2);
+    public static final TimedShow TIMED_SHOW_3 = new TimedShow(SHOW_3);
+
 }
