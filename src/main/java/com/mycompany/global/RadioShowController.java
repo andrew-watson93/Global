@@ -5,7 +5,11 @@
  */
 package com.mycompany.global;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
+import java.util.Map;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,12 +25,13 @@ public class RadioShowController {
         this.radioShowJsonParser = radioShowJsonParser;
     }
 
-    @RequestMapping("/")
-    public String index() {
-        return "Hello world";
-    }
-
-    public void createSchedule(String json) {
-        radioShowJsonParser.parseJson(json);
+//    @RequestMapping("/")
+//    public String index() {
+//        return "Hello world";
+//    }
+    @PostMapping("/schedule")
+    public @ResponseBody
+    Map<String, List<SimpleTimedShow>> createSchedule(@RequestBody String json) {
+        return radioShowJsonParser.parseJson(json);
     }
 }
