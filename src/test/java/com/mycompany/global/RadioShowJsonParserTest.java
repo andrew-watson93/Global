@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -35,6 +36,14 @@ public class RadioShowJsonParserTest {
     @InjectMocks
     private RadioShowJsonParser radioShowJsonParser;
 
+    private static final List<TimedShow> UNSORTED = Arrays.asList(TIMED_SHOW_2, TIMED_SHOW_1);
+
+    @Before
+    public void setUp() {
+        when(jsonMapper.mapToTimedShowList(NON_NESTED_SHOWS_JSON_STRING)).thenReturn(UNSORTED);
+
+    }
+
     @Test
     public void parseJson_CallsMapper() {
         radioShowJsonParser.parseJson(NON_NESTED_SHOWS_JSON_STRING);
@@ -43,11 +52,24 @@ public class RadioShowJsonParserTest {
 
     @Test
     public void parseJson_ReturnsMapWithDateStringAsKey() {
-        List<TimedShow> unsorted = Arrays.asList(TIMED_SHOW_2, TIMED_SHOW_1);
-        when(jsonMapper.mapToTimedShowList(NON_NESTED_SHOWS_JSON_STRING)).thenReturn(unsorted);
+        setupTestAndValidateCommonAssertions();
+    }
+
+    @Test
+    public void parseJson_ReturnsMapOfSortedLists() {
+        Map<String, List<TimedShow>> showsByDay = setupTestAndValidateCommonAssertions();
+        List<TimedShow> sortedShows = showsByDay.get("2018-03-26");
+        assertThat(sortedShows.size(), is(2));
+        assertThat(sortedShows.get(0), is(TIMED_SHOW_1));
+        assertThat(sortedShows.get(1), is(TIMED_SHOW_2));
+
+    }
+
+    private Map<String, List<TimedShow>> setupTestAndValidateCommonAssertions() {
         Map<String, List<TimedShow>> showsByDay = radioShowJsonParser.parseJson(NON_NESTED_SHOWS_JSON_STRING);
         assertThat(showsByDay.size(), is(1));
         assertThat(showsByDay.containsKey("2018-03-26"), is(true));
+        return showsByDay;
     }
 
 }
