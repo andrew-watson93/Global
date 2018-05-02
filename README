@@ -1,0 +1,6 @@
+To Run solution:
+
+mvn clean install
+mvn spring-boot:run
+
+Will deploy on http://localhost:8080
