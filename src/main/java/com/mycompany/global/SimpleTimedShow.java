@@ -23,9 +23,6 @@ public class SimpleTimedShow {
         this.synopsis = timedShow.getEpisode().getProgramme().getSynopsis();
     }
 
-    public SimpleTimedShow() {
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o instanceof SimpleTimedShow) {

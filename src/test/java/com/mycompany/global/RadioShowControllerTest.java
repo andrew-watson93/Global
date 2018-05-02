@@ -43,7 +43,6 @@ public class RadioShowControllerTest {
 
     @Test
     public void createSchedule_ReturnsMapReturnedFromService() {
-        SimpleTimedShow s = new SimpleTimedShow();
         List<SimpleTimedShow> simpleTimedShows = Arrays.asList(SIMPLE_TIMED_SHOW_1);
         Map<String, List<SimpleTimedShow>> map = new TreeMap<>();
         map.put("key", simpleTimedShows);

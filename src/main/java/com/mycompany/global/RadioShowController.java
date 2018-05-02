@@ -25,10 +25,6 @@ public class RadioShowController {
         this.radioShowJsonParser = radioShowJsonParser;
     }
 
-//    @RequestMapping("/")
-//    public String index() {
-//        return "Hello world";
-//    }
     @PostMapping("/schedule")
     public @ResponseBody
     Map<String, List<SimpleTimedShow>> createSchedule(@RequestBody String json) {
