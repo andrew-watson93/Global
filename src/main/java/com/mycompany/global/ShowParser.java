@@ -6,11 +6,13 @@
 package com.mycompany.global;
 
 import com.google.gson.Gson;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author andre
  */
+@Service
 public class ShowParser {
 
     Show getShow(String json) {

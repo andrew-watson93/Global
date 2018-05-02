@@ -11,11 +11,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author andre
  */
+@Service
 public class RadioShowJsonParser {
 
     private final JsonMapper jsonMapper;

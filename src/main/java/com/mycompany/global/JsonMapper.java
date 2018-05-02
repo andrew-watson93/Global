@@ -10,11 +10,13 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author andre
  */
+@Service
 public class JsonMapper {
 
     private final ShowParser showParser;

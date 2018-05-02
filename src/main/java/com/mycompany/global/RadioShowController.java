@@ -15,9 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RadioShowController {
 
+    private final RadioShowJsonParser radioShowJsonParser;
+
+    public RadioShowController(RadioShowJsonParser radioShowJsonParser) {
+        this.radioShowJsonParser = radioShowJsonParser;
+    }
+
     @RequestMapping("/")
     public String index() {
         return "Hello world";
     }
 
+    public void createSchedule(String json) {
+        radioShowJsonParser.parseJson(json);
+    }
 }
