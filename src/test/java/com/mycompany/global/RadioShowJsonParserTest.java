@@ -12,6 +12,7 @@ import static com.mycompany.global.TestConstants.SHOW;
 import static com.mycompany.global.TestConstants.TIMED_SHOW;
 import java.text.ParseException;
 import java.util.List;
+import java.util.Map;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Before;
@@ -46,28 +47,31 @@ public class RadioShowJsonParserTest {
 
     @Test
     public void parseItem_CallsParserMultipleTimesForNestedItem() {
-        radioShowJsonParser.parseItems(NESTED_SHOWS);
+        radioShowJsonParser.parseJson(NESTED_SHOWS);
         verify(showParser, times(2)).getShow(anyString());
     }
 
     @Test
     public void parseItem_CallsParserOnceForNonNestedItem() {
-        radioShowJsonParser.parseItems(NON_NESTED_SHOWS);
+        radioShowJsonParser.parseJson(NON_NESTED_SHOWS);
         verify(showParser).getShow(anyString());
     }
 
     @Test
     public void parseItem_HandlesBothTypesTogether() {
-        radioShowJsonParser.parseItems(NESTED_AND_NON_NESTED);
+        radioShowJsonParser.parseJson(NESTED_AND_NON_NESTED);
         verify(showParser, times(3)).getShow(anyString());
     }
 
     @Test
     public void parseItem_ReturnsShowsFromShowParser() throws ParseException {
 
-        List<TimedShow> shows = radioShowJsonParser.parseItems(NON_NESTED_SHOWS);
-        assertThat(shows.size(), is(1));
-        TimedShow actualTimedShow = shows.get(0);
+        Map<String, List<TimedShow>> showsMap = radioShowJsonParser.parseJson(NON_NESTED_SHOWS);
+        assertThat(showsMap.size(), is(1));
+        assertThat(showsMap.containsKey("2018-03-26"), is(true));
+        List<TimedShow> showsList = showsMap.get("2018-03-26");
+        assertThat(showsList.size(), is(1));
+        TimedShow actualTimedShow = showsList.get(0);
         assertThat(TIMED_SHOW, is(actualTimedShow));
     }
 
