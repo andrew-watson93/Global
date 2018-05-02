@@ -7,6 +7,9 @@ package com.mycompany.global;
 
 import static com.mycompany.global.TestConstants.NESTED_SHOWS_JSON_STRING;
 import static com.mycompany.global.TestConstants.NON_NESTED_SHOWS_JSON_STRING;
+import static com.mycompany.global.TestConstants.SIMPLE_TIMED_SHOW_1;
+import static com.mycompany.global.TestConstants.SIMPLE_TIMED_SHOW_2;
+import static com.mycompany.global.TestConstants.SIMPLE_TIMED_SHOW_3;
 import static com.mycompany.global.TestConstants.TIMED_SHOW_1;
 import static com.mycompany.global.TestConstants.TIMED_SHOW_2;
 import static com.mycompany.global.TestConstants.TIMED_SHOW_3;
@@ -60,37 +63,37 @@ public class RadioShowJsonParserTest {
 
     @Test
     public void parseJson_ReturnsMapOfSortedLists() {
-        Map<String, List<TimedShow>> showsByDay = setupTestAndValidateCommonAssertions();
+        Map<String, List<SimpleTimedShow>> showsByDay = setupTestAndValidateCommonAssertions();
         verifySortedListAssertions(showsByDay);
     }
 
     @Test
     public void parseJson_HandlesMultipleDays() {
-        Map<String, List<TimedShow>> showsByDay = radioShowJsonParser.parseJson(NESTED_SHOWS_JSON_STRING);
+        Map<String, List<SimpleTimedShow>> showsByDay = radioShowJsonParser.parseJson(NESTED_SHOWS_JSON_STRING);
         assertThat(showsByDay.size(), is(2));
         String key1 = (String) showsByDay.keySet().toArray()[0];
         String key2 = (String) showsByDay.keySet().toArray()[1];
         assertThat(key1, is("2018-03-26"));
         assertThat(key2, is("2018-03-27"));
         verifySortedListAssertions(showsByDay);
-        List<TimedShow> day2 = showsByDay.get(key2);
+        List<SimpleTimedShow> day2 = showsByDay.get(key2);
         assertThat(day2.size(), is(1));
-        assertThat(day2.get(0), is(TIMED_SHOW_3));
+        assertThat(day2.get(0), is(SIMPLE_TIMED_SHOW_3));
 
     }
 
-    private Map<String, List<TimedShow>> setupTestAndValidateCommonAssertions() {
-        Map<String, List<TimedShow>> showsByDay = radioShowJsonParser.parseJson(NON_NESTED_SHOWS_JSON_STRING);
+    private Map<String, List<SimpleTimedShow>> setupTestAndValidateCommonAssertions() {
+        Map<String, List<SimpleTimedShow>> showsByDay = radioShowJsonParser.parseJson(NON_NESTED_SHOWS_JSON_STRING);
         assertThat(showsByDay.size(), is(1));
         assertThat(showsByDay.containsKey("2018-03-26"), is(true));
         return showsByDay;
     }
 
-    private void verifySortedListAssertions(Map<String, List<TimedShow>> showsByDay) {
-        List<TimedShow> sortedShows = showsByDay.get("2018-03-26");
+    private void verifySortedListAssertions(Map<String, List<SimpleTimedShow>> showsByDay) {
+        List<SimpleTimedShow> sortedShows = showsByDay.get("2018-03-26");
         assertThat(sortedShows.size(), is(2));
-        assertThat(sortedShows.get(0), is(TIMED_SHOW_1));
-        assertThat(sortedShows.get(1), is(TIMED_SHOW_2));
+        assertThat(sortedShows.get(0), is(SIMPLE_TIMED_SHOW_1));
+        assertThat(sortedShows.get(1), is(SIMPLE_TIMED_SHOW_2));
     }
 
 }

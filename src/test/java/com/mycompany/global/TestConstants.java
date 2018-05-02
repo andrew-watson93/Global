@@ -93,5 +93,8 @@ public class TestConstants {
     public static final TimedShow TIMED_SHOW_1 = new TimedShow(SHOW_1);
     public static final TimedShow TIMED_SHOW_2 = new TimedShow(SHOW_2);
     public static final TimedShow TIMED_SHOW_3 = new TimedShow(SHOW_3);
+    public static final SimpleTimedShow SIMPLE_TIMED_SHOW_1 = new SimpleTimedShow(TIMED_SHOW_1);
+    public static final SimpleTimedShow SIMPLE_TIMED_SHOW_2 = new SimpleTimedShow(TIMED_SHOW_2);
+    public static final SimpleTimedShow SIMPLE_TIMED_SHOW_3 = new SimpleTimedShow(TIMED_SHOW_3);
 
 }

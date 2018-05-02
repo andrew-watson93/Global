@@ -24,29 +24,29 @@ public class RadioShowJsonParser {
         this.jsonMapper = jsonNodeMapper;
     }
 
-    public Map<String, List<TimedShow>> parseJson(String json) {
-        Map<String, List<TimedShow>> timedShowsByDay = new TreeMap<>();
+    public Map<String, List<SimpleTimedShow>> parseJson(String json) {
+        Map<String, List<SimpleTimedShow>> timedShowsByDay = new TreeMap<>();
         List<TimedShow> allTimedShows = jsonMapper.mapToTimedShowList(json);
         fillMap(allTimedShows, timedShowsByDay);
         return timedShowsByDay;
 
     }
 
-    private void fillMap(List<TimedShow> allTimedShows, Map<String, List<TimedShow>> timedShowsByDay) {
+    private void fillMap(List<TimedShow> allTimedShows, Map<String, List<SimpleTimedShow>> timedShowsByDay) {
         allTimedShows.sort(Comparator.comparing(TimedShow::getFrom));
         allTimedShows.forEach(ts -> {
             addTimedShowToMap(ts, timedShowsByDay);
         });
     }
 
-    private void addTimedShowToMap(TimedShow show, Map<String, List<TimedShow>> showsByDay) {
-        String dateString = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(show.getFrom());
-        List<TimedShow> shows = showsByDay.get(dateString);
+    private void addTimedShowToMap(TimedShow timedShow, Map<String, List<SimpleTimedShow>> showsByDay) {
+        String dateString = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(timedShow.getFrom());
+        List<SimpleTimedShow> shows = showsByDay.get(dateString);
         if (shows == null) {
             shows = new ArrayList();
             showsByDay.put(dateString, shows);
         }
-        shows.add(show);
+        shows.add(new SimpleTimedShow(timedShow));
     }
 
 }
